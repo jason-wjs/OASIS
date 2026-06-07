@@ -1,0 +1,11 @@
+**/*.egg-info/
+**/__pycache__/
+**/.pytest_cache/
+**/*.pyc
+**/*.pb
+**/.idea/
+**/.vscode/
+assets/*
+**/data/
+**/record_data/
+**/aug_data/

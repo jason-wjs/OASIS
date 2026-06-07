@@ -11,7 +11,7 @@ setup(
   install_requires=[
     "loop_rate_limiters",
     "mujoco",
-    "numpy",
+    "numpy==1.26.4",
     "scipy",
     "rich",
     "opencv-python",
