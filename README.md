@@ -1,8 +1,8 @@
 # OASIS: From Simulation Data Collection to Real-World Humanoid Loco-Manipulation
 
-![Cover](docs/cover.jpg)
-
 [[**website**](https://oasis-humanoid.github.io/)]
+
+![Cover](docs/cover.jpg)
 
 ## News
 - \[2026-6\] We release OASIS, including **data collection code**, **assets** and **paper**.
@@ -27,9 +27,9 @@ git clone https://github.com/TeleHuman/oasis.git
 conda activate oasis
 cd oasis && pip install -e .
 ```
-To use OASIS objects, download the object dataset from [object dataset](https://drive.google.com/file/d/1Q5izkCbbEV-ke2BSn_fZu2KI9ZeBn1ul/view). ( Ignore if you want to build your own scenes.) Place it at `assets/object`.
+To use OASIS objects, download the object dataset from [object dataset](https://drive.google.com/file/d/1Q5izkCbbEV-ke2BSn_fZu2KI9ZeBn1ul/view). ( Ignore if you want to build your own scenes.) Place it at `assets/`.
 
-To use OASIS textures during replay stage, download the texture from [texture dataset](https://drive.google.com/file/d/1d3LgLtdI-rajYZOOGOU6qMwLr7-rQhZ4/view). ( Ignore if you want to use your own textures.) Place it at `assets/textures`.
+To use OASIS textures during replay stage, download the texture from [texture dataset](https://drive.google.com/file/d/1d3LgLtdI-rajYZOOGOU6qMwLr7-rQhZ4/view). ( Ignore if you want to use your own textures.) Place it at `assets/`.
 
 - Install GMR and PICO SDK, following [GMR](https://github.com/YanjieZe/GMR)
 
@@ -50,13 +50,22 @@ After installing the PICO SDK, you need to first open `XRoboToolkit` on the PICO
 1. Visualize the simulation environment without recording
 
 ```bash
+conda activate oasis
 sh play.sh
 ```
 
 2. Collect data in headless mode
 
 ```bash
+conda activate oasis
 sh record.sh
+```
+
+Run teleop
+
+```bash
+conda activate gmr
+sh teleop.sh
 ```
 
 In record mode, the camera feed from the robot's head camera in Isaac Sim will be streamed to the PICO in real time. You need to click `Listen` in the Remote Vision section of `XRoboToolkit` to display the image in the center of your field of view. You can control the data collection lifecycle and gripper behavior using the PICO controllers.
