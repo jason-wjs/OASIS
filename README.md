@@ -1,6 +1,6 @@
 # OASIS: From Simulation Data Collection to Real-World Humanoid Loco-Manipulation
 
-[[**website**](https://oasis-humanoid.github.io/)]
+[[**website**](https://oasis-humanoid.github.io/)] [[**arxiv**](https://arxiv.org/abs/2606.08548)] [[**pdf**](https://arxiv.org/pdf/2606.08548)]
 
 ![Cover](docs/cover.jpg)
 
