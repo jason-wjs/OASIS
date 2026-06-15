@@ -17,6 +17,7 @@
 
 ```bash
 cd IssacLab && ./isaaclab.sh -c oasis
+conda activate oasis
 ./isaaclab.sh -i
 ```
 
