@@ -13,7 +13,7 @@
 
 ### 1. Installation
 
-- Install Isaac Lab v2.1.0 by following the [installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html).
+- Install Isaac Lab v2.2.0 by following the [installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html).
 
 ```bash
 cd IssacLab && ./isaaclab.sh -c oasis
