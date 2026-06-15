@@ -209,7 +209,7 @@ class XRobotTeleopToRobot:
     def setup_redis_connection(self):
         """Setup Redis connection"""
         redis_ip = self.args.redis_ip
-        self.redis_client = redis.Redis(host=redis_ip, port=6379, db=0, password="zjk1217...")
+        self.redis_client = redis.Redis(host=redis_ip, port=6379, db=0)
         self.redis_pipeline = self.redis_client.pipeline()
         self.redis_client.ping()
         print("Redis connected successfully")
