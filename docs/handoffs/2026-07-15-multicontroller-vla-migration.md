@@ -213,13 +213,17 @@ VLA support scope on `main`:
 - VLA model/training code.
 - Inference checkpoint export.
 - Synchronous policy wrapper and asynchronous runner.
-- Legacy ZSVLA compatibility adapter and deploy entrypoint.
+- Controller-neutral MotionPlan output in tasks.teleop.control.
 - Explicit paths/configuration for CLIP, DINOv2, checkpoints, norm stats, scene,
   and language instruction.
 
-Do not register ZSVLA as a fourth production controller in the later
-multi-controller feature. It exists only to preserve the original VLA rollout
-path until VLA output is connected to the new controller seam.
+Implementation note: the obsolete snapshot deploy_sim.py was not copied. It
+constructs an older VAE backbone that cannot load the current Rectified Flow
+checkpoint, depends on a ZSVLA-specific low-level controller, and names scenes
+that do not exist in current OASIS. The port instead terminates at the shared,
+timestamped MotionPlan boundary. On the RTX 4090 branch, that plan will feed
+the startup-selected Teleopit, HEFT, or SONIC adapter. ZSVLA must not be
+registered as a fourth production controller.
 
 ## Existing offline VLA environment
 
@@ -281,6 +285,10 @@ Trajectory-only data is suitable for feature-codec, reference, and low-level
 controller tests. It is not sufficient to train a visuomotor policy because the
 three camera image payloads are intentionally omitted.
 
+The completed migration is recorded in
+docs/manifests/pick_up_basket_trajectories.md; authoritative per-file hashes
+are in docs/manifests/pick_up_basket_trajectories.sha256.
+
 ## Acceptance criteria before migration
 
 - Original and ported 69D feature encoding match on representative augmented and
@@ -329,8 +337,8 @@ rollout remain deferred to the RTX 4090.
 - [x] Multi-controller and VLA requirements investigated.
 - [x] H100/RTX 4090 responsibility split agreed.
 - [x] Existing offline VLA environment identified.
-- [ ] VLA module ported to current OASIS.
-- [ ] VLA offline tests passed.
-- [ ] Unique pick-up-basket trajectories copied.
-- [ ] Trajectory manifest generated and verified.
+- [x] VLA module ported to current OASIS.
+- [x] VLA offline tests passed (10/10).
+- [x] Unique pick-up-basket trajectories copied (66 files, 869485988 bytes).
+- [x] Trajectory manifest generated and verified with per-file SHA256.
 - [ ] RTX 4090 Isaac Sim and rollout validation completed.
