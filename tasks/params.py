@@ -16,6 +16,10 @@ ROBOT_BASE_DICT = {
 
 REDIS_ACTION_KEY = "action_payload_unitree_g1"
 
+# VLA motion features are sampled at the 50 Hz low-level policy rate. Keep
+# this explicit because it is part of both the dataset and deployment codec.
+VLA_STRIDE = 1
+
 # --- Default mimic observation / hand poses (merged from data_utils/params.py) ---
 
 DEFAULT_OBS_G1 = {

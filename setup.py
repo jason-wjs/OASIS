@@ -26,5 +26,14 @@ setup(
     "warp-lang==1.0.2",
     "logging_mp==0.1.6",
   ],
+  extras_require={
+    "vla": [
+      "Pillow",
+      "tensorboard",
+      "torchvision",
+      "tqdm",
+      "transformers>=4.30",
+    ],
+  },
   python_requires='>=3.10',
 )
